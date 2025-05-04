@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
+
+@theme {
+  --font-sans: Oswald;
+  --font-serif: Quattrocento;
+}
+
+@font-face {
+  font-family: Oswald;
+  src: url('$lib/assets/fonts/Oswald/Oswald-VariableFont_wght.ttf');
+  font-display: block;
+}
+
+@font-face {
+  font-family: Quattrocento;
+  src: url('$lib/assets/fonts/Quattrocento/Quattrocento-Bold.ttf');
+  src: url('$lib/assets/fonts/Quattrocento/Quattrocento-Regular.ttf');
+  font-display: block;
+}
+
+p {
+  font-family: Quattrocento;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.tooltip::before {
+  z-index: 999;
+  font-size: larger;
+  padding: 20px;
+  border-radius: var(--radius-2xl);
+}
+
+@media only screen and (max-width: 640px) {
+  .tooltip::before {
+    display: none;
+  }
+}
