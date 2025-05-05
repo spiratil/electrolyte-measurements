@@ -1,1 +1,0 @@
-import{aj as o,B as p,y as m,z as l}from"./kC4pbayS.js";import{t as f,a as x}from"./B8itCrcA.js";import{p as c,s as n}from"./CcAI76O4.js";import{s as _}from"./CsrE2ifj.js";o();var i=f("<p> </p>");function h(a,e){let r=c(e,"center",3,!1);var t=i(),s=m(t,!0);l(t),p(()=>{_(t,1,`text-xl my-3 max-w-2xl ${r()?"text-center":""}`),n(s,e.text)}),x(a,t)}export{h as I};

@@ -1,1 +1,0 @@
-import{h as c}from"./kC4pbayS.js";function f(s,t,e){var r=s==null?"":""+s;return t&&(r=r?r+" "+t:t),r===""?null:r}function p(s,t,e,r,u,a){var l=s.__className;if(c||l!==e||l===void 0){var i=f(e,r);(!c||i!==s.getAttribute("class"))&&(i==null?s.removeAttribute("class"):t?s.className=i:s.setAttribute("class",i)),s.__className=e}return a}export{p as s};
