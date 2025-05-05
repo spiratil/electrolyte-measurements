@@ -2,6 +2,10 @@
 # Electrolyte Solution Calculator
 Home made electrolyte solutions can be difficult to get the right ingredients and ratios right... But it doesn't have to be! Electrolyte Solution Calculator (ESC) simplifies this process and determines the exact ratios you require.
 
+Visit the app here:
+
+https://spiratil.github.io/electrolyte-measurements
+
 ![A screenshot of ESC](./static/instructions.png)
 
 ## Features
