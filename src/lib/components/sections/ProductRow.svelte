@@ -67,7 +67,6 @@
         return <string> value[key];
       case 'price':
         const extractedValue= (<string> value[key]).match(/[0-9.]*/g)?.join('');
-          console.log(extractedValue)
         if (extractedValue)
           return extractedValue;
         return 0;

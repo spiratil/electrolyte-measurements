@@ -411,9 +411,6 @@ export const ts: Data = {
       return null;
 
     const res = optimizeProducts(products, targetNutrients);
-
-    console.log(res)
-
     const results: Results[] = [];
 
     // Create the array of results to return to the user
@@ -470,8 +467,6 @@ export const ts: Data = {
                              ? val * product.price * product.serveSize / product.totalAmount
                              : val * product.price * (product.serveSize * unitConv[product.serveUnits]) / (product.totalAmount * unitConv[product.totalUnits])
 
-          console.log(prodIdx, product.name, val, 'Amt:', prodAmt, 'TotAmt:', prodTotAmt, prodUnit)
-
           // Add the product calculations to the results to return to the user
           results[i].products.push({
             name: product.name,
@@ -522,8 +517,6 @@ export const ts: Data = {
           else 
             nutrient.targetUnit = determineFinalProductUnits(difference, 'powder');
 
-          console.log(nutrient.name, nutrient.amount, targetNutrients[nutIdx] / 1000000, difference, unitConv[nutrient.targetUnit])
-
           nutrient.amount = Math.round((nutrient.amount / unitConv[nutrient.unit] + Number.EPSILON) * 100) / 100;
           nutrient.targetDifference = Math.round((difference / unitConv[nutrient.targetUnit] + Number.EPSILON) * 100) / 100;
         }
@@ -565,15 +558,14 @@ function determineFinalProductUnits(value: number, form: string): string {
 }
 
 function optimizeProducts(products: any[], targetNutrients: number[]): (solver.Solution<string>|null)[] {
-  console.log(targetNutrients, products)
-  // Step 1: minimize nutrient deviation
+  // Minimize nutrient deviation
   const model1 = buildProductModel(products, targetNutrients, false);
   const result1 = solver.Solve(model1);
 
   if (!result1.feasible || !result1.bounded)
     return [result1, null];
 
-  // Step 2: minimize cost with deviation constraints
+  // Minimize cost with deviation constraints
   const model2 = buildProductModel(products, targetNutrients, true, 0.01);
   const result2 = solver.Solve(model2);
 
